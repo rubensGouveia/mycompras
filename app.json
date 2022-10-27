@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "mycomprasapp",
+    "slug": "mycomprasapp",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
