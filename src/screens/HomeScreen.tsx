@@ -1,4 +1,6 @@
 
+import { Balance } from '@components/Balance';
+import { LastPurchases } from '@components/LastPurchases';
 import { Loading } from '@components/Loading';
 import { ScreenContainer } from '@components/ScreenContainer';
 import { useNavigation } from '@react-navigation/native';
@@ -11,7 +13,9 @@ export function HomeScreen() {
 
   return (
     <ScreenContainer >
-      <Text>Open up App.js to start working on your app!</Text>
+      <Balance />
+      <LastPurchases />
+
       <Button title='scanner' onPress={() => navigation.navigate('barcode')} />
     </ScreenContainer>
   );

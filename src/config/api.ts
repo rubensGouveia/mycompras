@@ -1,6 +1,6 @@
 import axios from 'axios';
 // const base='https://api-contas.herokuapp.com/'
-const base = 'https://e6f7-2804-774-8102-6e51-d1db-dfb3-b63f-96ae.sa.ngrok.io/'
+const base = 'https://de0e-2804-774-8102-6e51-d1db-dfb3-b63f-96ae.sa.ngrok.io/'
 export const api = axios.create({
   baseURL: base,
 
