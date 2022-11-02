@@ -5,12 +5,15 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import * as Clipboard from 'expo-clipboard';
 import { api } from '@config/api';
 import { useNavigation } from '@react-navigation/native';
+import { ScreenContainer } from '@components/ScreenContainer';
+
 
 export function BarCodeScreen() {
   const navigation = useNavigation()
 
   const [hasPermission, setHasPermission] = useState<boolean | null>(null);
   const [scanned, setScanned] = useState(false);
+  const [loading, setloading] = useState(false);
 
 
   useEffect(() => {
@@ -28,8 +31,12 @@ export function BarCodeScreen() {
     setScanned(true);
     if (data.includes('qrcode')) {
       const token = data.replace(/http:\/\/www\.fazenda\.df\.gov\.br\/nfce\/qrcode\?p=/, '')
-      api.get(`qrcode/${token}`).then(json => navigation.navigate('loaded', { data: JSON.stringify(json.data) })).catch(err => console.log('err', err))
-      alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+      api.get(`qrcode/${token}`).then(json => {
+        setloading(true)
+        navigation.navigate('loaded', { data: JSON.stringify(json.data) })
+      }).catch(err => console.log('err', err)).finally(() => {
+        setloading(false)
+      })
     } else {
       await Clipboard.setStringAsync(data.split('p=')[1]);
       navigation.navigate('webview')
@@ -44,22 +51,14 @@ export function BarCodeScreen() {
   }
 
   return (
-    <View style={styles.container}>
+    <ScreenContainer loading={loading}>
       <BarCodeScanner
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
         style={StyleSheet.absoluteFillObject}
       />
       {scanned && <Button title={'Tap to Scan Again'} onPress={() => setScanned(false)} />}
-    </View>
+    </ScreenContainer>
   );
 
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

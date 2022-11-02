@@ -3,12 +3,13 @@ import { BarCodeScreen } from '@screens/BarCodeScreen'
 import { HomeScreen } from '@screens/HomeScreen'
 import { LoadedScreen } from '@screens/LoadedScreen'
 import { WebViewScreen } from '@screens/WebViewScreen'
+import screenConfig from '@utils/screenConfig'
 
 const { Screen, Navigator } = createNativeStackNavigator()
 
 export function StackRoutes() {
     return (
-        <Navigator>
+        <Navigator screenOptions={screenConfig()}>
             <Screen
                 name="home"
                 component={HomeScreen}

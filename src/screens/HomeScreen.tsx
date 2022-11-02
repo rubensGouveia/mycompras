@@ -1,4 +1,6 @@
 
+import { Loading } from '@components/Loading';
+import { ScreenContainer } from '@components/ScreenContainer';
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
@@ -8,10 +10,10 @@ export function HomeScreen() {
   const navigation = useNavigation()
 
   return (
-    <View style={styles.container}>
+    <ScreenContainer >
       <Text>Open up App.js to start working on your app!</Text>
       <Button title='scanner' onPress={() => navigation.navigate('barcode')} />
-    </View>
+    </ScreenContainer>
   );
 }
 

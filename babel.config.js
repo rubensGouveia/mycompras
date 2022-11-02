@@ -11,6 +11,7 @@ module.exports = function (api) {
       '@screens':'./src/screens',
       '@config':'./src/config',
       '@routes':'./src/routes',
+      '@utils':'./src/utils',
     }
   }]
   ],

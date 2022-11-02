@@ -6,7 +6,7 @@ interface IProps {
     product: IProduto
 }
 
-export function Product({ product }: IProps) {
+export const Product = ({ product }: IProps) => {
 
     return (
         <Container>
