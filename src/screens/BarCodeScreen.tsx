@@ -1,7 +1,7 @@
 
 import { BarCodeEvent, BarCodeScanner } from 'expo-barcode-scanner';
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, Button } from 'react-native';
 import * as Clipboard from 'expo-clipboard';
 import { api } from '@config/api';
 import { useNavigation } from '@react-navigation/native';
@@ -29,18 +29,19 @@ export function BarCodeScreen() {
 
 
     setScanned(true);
-    if (data.includes('qrcode')) {
-      const token = data.replace(/http:\/\/www\.fazenda\.df\.gov\.br\/nfce\/qrcode\?p=/, '')
-      api.get(`qrcode/${token}`).then(json => {
-        setloading(true)
-        navigation.navigate('loaded', { data: JSON.stringify(json.data) })
-      }).catch(err => console.log('err', err)).finally(() => {
-        setloading(false)
-      })
-    } else {
-      await Clipboard.setStringAsync(data.split('p=')[1]);
-      navigation.navigate('webview')
-    }
+    console.log(data)
+    // if (data.includes('qrcode')) {
+    //   const token = data.replace(/http:\/\/www\.fazenda\.df\.gov\.br\/nfce\/qrcode\?p=/, '')
+    //   api.get(`qrcode/${token}`).then(json => {
+    //     setloading(true)
+    //     navigation.navigate('loaded', { data: JSON.stringify(json.data) })
+    //   }).catch(err => console.log('err', err)).finally(() => {
+    //     setloading(false)
+    //   })
+    // } else {
+    //   await Clipboard.setStringAsync(data.split('p=')[1]);
+    //   navigation.navigate('webview')
+    // }
   };
 
   if (hasPermission === null) {

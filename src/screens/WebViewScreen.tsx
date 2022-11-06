@@ -12,6 +12,7 @@ export function WebViewScreen() {
 
     if (!url) return;
     if (url.includes('token') && !navigationType) {
+      console.log(url.split('Visualiza/')[1].trim())
       api.get(`pcode/${url.split('Visualiza/')[1].trim()}`).then(json => navigation.navigate('loaded', { data: JSON.stringify(json.data) })).catch(err => console.log('err', err))
     }
   };

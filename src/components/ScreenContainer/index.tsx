@@ -7,7 +7,7 @@ import styled from 'styled-components/native'
 const Container = styled(SafeAreaView)`
 flex: 1;
 align-items: center;
-justify-content: center;
+justify-content: flex-start;
 padding: 16px;
 `
 interface Props {

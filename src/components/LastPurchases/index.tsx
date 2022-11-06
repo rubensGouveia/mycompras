@@ -1,11 +1,18 @@
-import { Text } from 'react-native'
 import { Card } from '@components/Card';
+import { ICompra } from 'src/@types/compras';
+import { Purchase } from '@components/Purchase';
 
-export const LastPurchases = () => {
+interface Props {
+    purchases: ICompra[]
+}
+
+export const LastPurchases = ({ purchases }: Props) => {
 
     return (
-        <Card title="Últimas compras" buttonType="add">
-            <Text>Loja</Text>
+        <Card title="Últimas compras" buttonType="see" bgColor='rgba(254,0,0,0)' padding={0}>
+            {purchases?.map((p) => (
+                <Purchase key={p.id} compra={p} />
+            ))}
         </Card>
     )
 }

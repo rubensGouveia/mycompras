@@ -9,20 +9,9 @@ width:100%;
 export const ProgressText = styled.Text`
 position: absolute;
 right:10px;
-font-size: 10px;
-top: 92%;
+font-weight: 700;
+top: 82%;
 z-index: 2;
+
 mix-blend-mode: color-burn;
-`
-export const Row = styled.View`
-align-items: center;
-justify-content: flex-start;
-flex-direction: row;
-
-`
-export const End = styled.View`
-margin-left: auto;
-
-
-
 `

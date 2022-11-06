@@ -1,15 +1,21 @@
+import { View, ViewProps } from 'react-native'
+
 import styled from 'styled-components/native'
+interface WrapperProps extends ViewProps{
+    bgColor:string
+    
+}
 
 export const Container = styled.View`
 width:100%;
 margin-bottom:24px;
 `
-export const Wrapper = styled.View`
-padding: 16px;
+export const Wrapper = styled(View)<WrapperProps>`
+
 margin-top: 8px; 
-background-color: #fff;
+background-color: ${({bgColor})=>bgColor};
 width:100%;
-border-radius: 10px
+border-radius: 10px;
 `
 
 export const Row = styled.View`
