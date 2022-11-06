@@ -5,6 +5,9 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import { ICompra } from 'src/@types/compras';
 import { ScreenContainer } from '@components/ScreenContainer';
 import { Product } from '@components/Procuct';
+import { PurchaseHeader } from '@components/PurchaseHeader';
+import { Container, Row } from '@components/Purchase/styles';
+import { Card } from '@components/Card';
 
 type RouteParams = {
   data: string
@@ -19,18 +22,36 @@ export function LoadedScreen() {
 
   const compra: ICompra = JSON.parse(data)
 
+  function cardTitle() {
+    const length = compra.produtos.length
+    const prod = length === 1 ? 'Produto' : 'Produtos'
+
+    return `${prod} (${length})`
+  }
+
   return (
-    <ScreenContainer>
-      <ScrollView >
-        <View style={styles.container}>
-          <Text>{compra?.estabelecimento}</Text>
+
+    <ScrollView horizontal={false} style={{ padding: 16 }}>
+      <Container>
+        <Row>
+
+          <PurchaseHeader compra={compra} />
+          <View style={{ flex: 0.3, alignItems: 'center', justifyContent: 'center' }}>
+            <Text>></Text>
+          </View>
+        </Row>
+      </Container>
+      <View style={styles.container}>
+        <Card title={cardTitle()} bgColor="rgba(0,0,0,0)" padding={0}>
+
           {compra?.produtos?.map(produto => (
             <Product key={produto?.nome} product={produto} />
           ))}
-          <Text>{compra?.valorCompra}</Text>
-        </View>
-      </ScrollView>
-    </ScreenContainer>
+        </Card>
+
+      </View>
+    </ScrollView>
+
   );
 }
 
@@ -38,7 +59,7 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 16
+
   },
 
 });

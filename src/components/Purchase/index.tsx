@@ -1,8 +1,9 @@
+import { PurchaseHeader } from '@components/PurchaseHeader';
 import { formatCurrency } from '@utils/formatCurrency';
 import { formatDate } from '@utils/formatDate';
 import { Text, View } from 'react-native';
 import { ICompra } from 'src/@types/compras';
-import { Block, BlockCurrency, Container, Row } from './styles'
+import { BlockCurrency, Container, Row } from './styles'
 
 
 interface IProps {
@@ -17,11 +18,7 @@ export const Purchase = ({ compra }: IProps) => {
     return (
         <Container>
             <Row>
-                <Block>
-                    <Text style={{ fontSize: 10 }}>{compra?.created_at && formatDate(new Date(compra?.created_at), 'dd/MM/yyyy - HH:mm')}</Text>
-                    <Text style={{ fontSize: 16, fontWeight: '700', paddingVertical: 6 }} numberOfLines={1} ellipsizeMode='tail' >{compra.estabelecimento}</Text>
-                    <Text style={{ fontSize: 13 }} numberOfLines={1} ellipsizeMode='tail'>{compra?.endereco}</Text>
-                </Block>
+                <PurchaseHeader compra={compra} />
                 <BlockCurrency >
                     <View style={{ flexDirection: 'row', alignItems: "flex-start" }} >
 

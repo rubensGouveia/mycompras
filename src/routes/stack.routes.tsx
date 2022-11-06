@@ -25,6 +25,7 @@ export function StackRoutes() {
             <Screen
                 name="loaded"
                 component={LoadedScreen}
+                options={{ title: "Nova Compra", headerShown: true, headerStyle: { backgroundColor: '#f0efef' } }}
             />
         </Navigator>
     )
