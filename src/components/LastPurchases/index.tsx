@@ -1,5 +1,5 @@
 import { Card } from '@components/Card';
-import { ICompra } from 'src/@types/compras';
+import { ICompra } from 'src/types/compras';
 import { Purchase } from '@components/Purchase';
 
 interface Props {

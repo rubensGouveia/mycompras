@@ -20,6 +20,12 @@
       "@utils/*": [
         "./src/utils/*"
       ],
+      "@assets/*": [
+       "./src/assets/*"
+      ], 
+      "@types/*": [
+       "./src/types/*"
+      ], 
     }
   },
 }

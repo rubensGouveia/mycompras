@@ -1,6 +1,8 @@
+import { ArrowRight } from '@assets/svg/ArrowRight';
 import { formatCurrency } from '@utils/formatCurrency';
 import { Text } from 'react-native';
-import { IProduto } from 'src/@types/compras';
+import { IProduto } from 'src/types/compras';
+
 import { Action, Block, Container, Info, Row } from './styles'
 
 interface IProps {
@@ -39,7 +41,7 @@ export const Product = ({ product }: IProps) => {
                 </Block>
                 <Action>
 
-                    <Text>></Text>
+                    <Text><ArrowRight /></Text>
                 </Action>
 
             </Row>

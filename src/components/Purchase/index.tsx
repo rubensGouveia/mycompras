@@ -2,7 +2,7 @@ import { PurchaseHeader } from '@components/PurchaseHeader';
 import { formatCurrency } from '@utils/formatCurrency';
 import { formatDate } from '@utils/formatDate';
 import { Text, View } from 'react-native';
-import { ICompra } from 'src/@types/compras';
+import { ICompra } from 'src/types/compras';
 import { BlockCurrency, Container, Row } from './styles'
 
 

@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { BarCodeScreen } from '@screens/BarCodeScreen'
 import { HomeScreen } from '@screens/HomeScreen'
-import { LoadedScreen } from '@screens/LoadedScreen'
+import { LoadedScreen, NewPage } from '@screens/LoadedScreen'
 import { WebViewScreen } from '@screens/WebViewScreen'
 import screenConfig from '@utils/screenConfig'
 
@@ -25,7 +25,7 @@ export function StackRoutes() {
             <Screen
                 name="loaded"
                 component={LoadedScreen}
-                options={{ title: "Nova Compra", headerShown: true, headerStyle: { backgroundColor: '#f0efef' } }}
+                options={{ title: "Nova Compra", headerShown: true, headerStyle: { backgroundColor: '#f0efef', }, headerShadowVisible: false }}
             />
         </Navigator>
     )

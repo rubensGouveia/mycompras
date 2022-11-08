@@ -1,7 +1,7 @@
 
 import { formatDate } from '@utils/formatDate';
 import { Text } from 'react-native';
-import { ICompra } from 'src/@types/compras';
+import { ICompra } from 'src/types/compras';
 import { Block } from './styles'
 interface IProps {
     compra: ICompra

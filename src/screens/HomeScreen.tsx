@@ -9,7 +9,7 @@ import { StyleSheet, Button } from 'react-native';
 import { api } from '@config/api';
 import { MonthSelector } from '@components/MonthSelector';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { IGetHome } from 'src/@types/compras';
+import { IGetHome } from 'src/types/compras';
 
 export function HomeScreen() {
   const navigation = useNavigation()
